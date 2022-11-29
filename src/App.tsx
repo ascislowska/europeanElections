@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import {
+  votingResults,
+  votingResultsValues,
+} from "./datasets/votingResults.js";
+import RenderLineChart from "./components/RenderLineChart";
+import RenderPieChart from "./components/RenderPieChart";
+import TurnoutChart from "./components/TurnoutChart";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RenderLineChart data={votingResults} values={votingResultsValues} />
+      <RenderPieChart data={votingResults} values={votingResultsValues} />
+      <TurnoutChart />
     </div>
   );
 }
