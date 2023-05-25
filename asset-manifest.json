@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/europeanElections/static/css/main.cf25f8d4.css",
+    "main.js": "/europeanElections/static/js/main.bccc6222.js",
+    "static/js/787.a55634d3.chunk.js": "/europeanElections/static/js/787.a55634d3.chunk.js",
+    "index.html": "/europeanElections/index.html",
+    "main.cf25f8d4.css.map": "/europeanElections/static/css/main.cf25f8d4.css.map",
+    "main.bccc6222.js.map": "/europeanElections/static/js/main.bccc6222.js.map",
+    "787.a55634d3.chunk.js.map": "/europeanElections/static/js/787.a55634d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf25f8d4.css",
+    "static/js/main.bccc6222.js"
+  ]
+}
