@@ -1,0 +1,59 @@
+@charset "utf-8";
+//*** Customized Bulma variables ***//
+
+//show horizontal menu on mobile (don't stack):
+$navbar-breakpoint: 0;
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap');
+   $family-primary:  'Jost', sans-serif;
+
+@import "../node_modules/bulma/bulma.sass";
+
+//LAYOUT
+//from desktop show side menu
+.side-menu-col {
+flex-grow: 0;
+
+}
+.side-menu-section {
+  padding-left: 0;
+  padding-right: 0;
+}
+.side-menu { 
+  display: none;
+  padding-left: .5rem;
+  padding-top: .5rem;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+}
+//switch displayed menu 
+@media (min-width: 1024px){
+  nav.navbar {
+  display: none
+  }
+  .side-menu {
+    display: block;
+  }
+}
+//CHARTS
+//necessary for Recharts lbrary
+.chart-wrapper {
+  height: 50vh; 
+}
+@media  (max-width: 1023px) and (min-aspect-ratio: "2/1") {
+  .chart-wrapper{
+height: 90vh;
+  }
+}
+.filter-checkboxes {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, 30%);
+}
+.custom-tooltip {
+  background-color: $white;
+  max-width: 200px;
+  padding: 0.5rem;
+  
+}

@@ -1,0 +1,48 @@
+{
+  "title": "EU_HEMICYCLE_TITLE",
+  "status": "CONSTITUTIVE",
+  "time": "2019-07-02T10:00:00.000+0200",
+  "seatsTotal": 751,
+  "groupDistribution": [
+    {
+      "id": "EPP",
+      "seatsTotal": 182,
+      "seatsPercentEU": 24.23
+    },
+    {
+      "id": "SD",
+      "seatsTotal": 154,
+      "seatsPercentEU": 20.51
+    },
+    {
+      "id": "ECR",
+      "seatsTotal": 62,
+      "seatsPercentEU": 8.26
+    },
+    {
+      "id": "ALDE",
+      "seatsTotal": 108,
+      "seatsPercentEU": 14.38
+    },
+    {
+      "id": "GUENGL",
+      "seatsTotal": 41,
+      "seatsPercentEU": 5.46
+    },
+    {
+      "id": "GREENSEFA",
+      "seatsTotal": 74,
+      "seatsPercentEU": 9.85
+    },
+    {
+      "id": "ENF",
+      "seatsTotal": 73,
+      "seatsPercentEU": 9.72
+    },
+    {
+      "id": "NA",
+      "seatsTotal": 57,
+      "seatsPercentEU": 7.59
+    }
+  ]
+}
