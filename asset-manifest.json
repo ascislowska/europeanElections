@@ -1,15 +1,19 @@
 {
   "files": {
     "main.css": "/europeanElections/static/css/main.cf25f8d4.css",
-    "main.js": "/europeanElections/static/js/main.bccc6222.js",
+    "main.js": "/europeanElections/static/js/main.b47f7555.js",
     "static/js/787.a55634d3.chunk.js": "/europeanElections/static/js/787.a55634d3.chunk.js",
     "index.html": "/europeanElections/index.html",
+    "static/media/polish.md": "/europeanElections/static/media/polish.32672f2c051a57b4d284.md",
+    "static/media/turnout.md": "/europeanElections/static/media/turnout.abf3db13b5e11ec7781a.md",
+    "static/media/results.md": "/europeanElections/static/media/results.ec1b6e77a7578b43a4eb.md",
+    "static/media/intro.md": "/europeanElections/static/media/intro.f448108a53093f517362.md",
     "main.cf25f8d4.css.map": "/europeanElections/static/css/main.cf25f8d4.css.map",
-    "main.bccc6222.js.map": "/europeanElections/static/js/main.bccc6222.js.map",
+    "main.b47f7555.js.map": "/europeanElections/static/js/main.b47f7555.js.map",
     "787.a55634d3.chunk.js.map": "/europeanElections/static/js/787.a55634d3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf25f8d4.css",
-    "static/js/main.bccc6222.js"
+    "static/js/main.b47f7555.js"
   ]
 }
