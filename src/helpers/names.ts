@@ -1,11 +1,10 @@
 import { IParty, IName, IGroup } from "../interfaces";
+import { fetchJson } from "./fetchData";
 
 // POLISH PARTIES
 export const getNamesList = async (countryId: string) => {
-    const response = await fetch("data/parties.json");
-    const myJson = await response.json();
-
-    const parties = await myJson.countries.find(
+    const data = await fetchJson("data/parties.json");
+    const parties = data.countries.find(
         (country: { countryId: string }) => country.countryId === countryId,
     );
     return parties.candidates;
@@ -25,9 +24,8 @@ export const getName = (id: string, partiesList: IParty[]): IName => {
 //EUROPEAN GROUPS
 
 export const getGroupsList = async () => {
-    const groups = await fetch("data/groups.json");
-    const groupsJson = await groups.json();
-    const groupsNames = await groupsJson.groups;
+    const data = await fetchJson("data/groups.json");
+    const groupsNames = await data.groups;
     return groupsNames;
 };
 

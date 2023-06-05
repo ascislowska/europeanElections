@@ -1,7 +1,9 @@
 import { ResponsiveContainer, PieChart, Pie, Tooltip, Cell } from "recharts";
-import { colors } from "../../../consts/colors";
+import { colors } from "../../consts/colors";
 import { CustomLabel } from "./CustomLabel";
-import { IChartData, IDataFilter } from "../../../interfaces";
+import { IChartData, IDataFilter } from "../../interfaces";
+
+import CustomTooltip from "./CustomTooltip";
 
 interface Props {
     data: IChartData[];
@@ -14,7 +16,7 @@ const CustomPieChart = ({ data, selectedData }: Props) => {
                 <Pie
                     data={data}
                     dataKey={selectedData.key}
-                    nameKey={"longName"}
+                    nameKey={"name"}
                     labelLine={false}
                     label={
                         <CustomLabel
@@ -24,10 +26,17 @@ const CustomPieChart = ({ data, selectedData }: Props) => {
                     }
                 >
                     {data.map((item: any, index: number) => {
-                        return <Cell fill={colors[index % colors.length]} />;
+                        return (
+                            <Cell
+                                key={item}
+                                fill={colors[index % colors.length]}
+                            />
+                        );
                     })}
                 </Pie>
-                <Tooltip />
+                <Tooltip
+                    content={<CustomTooltip selectedData={selectedData} />}
+                />
             </PieChart>
         </ResponsiveContainer>
     );

@@ -1,5 +1,5 @@
 import FilterItem from "./FilterItem";
-import { IDataFilter } from "../../../interfaces";
+import { IDataFilter } from "../../interfaces";
 
 interface Props {
     filterBy: IDataFilter[];
@@ -19,6 +19,7 @@ const FilterDatasets = ({
             <div className="panel-block filter-checkboxes">
                 {filterBy.map((filter: IDataFilter) => (
                     <FilterItem
+                        key={filter.key}
                         filter={filter}
                         selectedFilters={selectedFilters}
                         setSelectedFilters={setSelectedFilters}

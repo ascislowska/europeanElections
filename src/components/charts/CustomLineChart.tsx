@@ -8,8 +8,8 @@ import {
     CartesianGrid,
     Tooltip,
 } from "recharts";
-import { colors } from "../../../consts/colors";
-import { IDataFilter } from "../../../interfaces";
+import { colors } from "../../consts/colors";
+import { IDataFilter } from "../../interfaces";
 type Props = {
     data: any[];
     selectedData: IDataFilter[];
@@ -47,7 +47,7 @@ const CustomLineChart = ({ data, selectedData }: Props) => {
                 <Area
                     type="monotone"
                     dataKey="percent"
-                    stroke=" 	hsl(14, 100%, 53%)"
+                    stroke="hsl(14, 100%, 53%)"
                     fillOpacity={1}
                     strokeWidth={2}
                     fill="url(#colorUv)"

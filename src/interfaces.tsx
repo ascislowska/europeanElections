@@ -8,8 +8,8 @@ export interface IDataFilter {
     unit?: string;
 }
 export interface IChartData {
-    longname: string;
-    shortname: string;
+    name: string;
+    id: string;
 }
 export interface IResults {
     id: string;

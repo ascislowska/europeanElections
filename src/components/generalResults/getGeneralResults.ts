@@ -1,25 +1,24 @@
-import { getGroupName, getGroupsList } from "../../../helpers/names";
-import { IChartData, IGroup, IName } from "../../../interfaces";
+import { fetchJson } from "../../helpers/fetchData";
+import { getGroupName, getGroupsList } from "../../helpers/names";
+import { IChartData, IGroup, IName } from "../../interfaces";
 import GeneralResults from "./GeneralResults";
 
-export interface GeneralResults {
+export interface IGeneralResults {
     id: string;
     seatsTotal: string;
     seatsPercentEU: string;
 }
-export type GeneralResultsData = GeneralResults & IChartData;
+export type GeneralResultsData = IGeneralResults & IChartData;
 
 export const getData = async (): Promise<GeneralResultsData[]> => {
-    const response = await fetch("data/eu.json");
-    const json = await response.json();
-    const results = json.groupDistribution;
-
+    //get election results
+    const results = await fetchJson("./data/eu.json");
     //get groups names from a separate source
     const groups: IGroup[] = await getGroupsList();
 
     //format data for chart
-    const chartData: GeneralResultsData[] = results.map(
-        (result: GeneralResults) => {
+    const chartData: GeneralResultsData[] = results.groupDistribution.map(
+        (result: IGeneralResults) => {
             //find name
             const name: IName = getGroupName(result.id, groups);
             return {
@@ -27,7 +26,7 @@ export const getData = async (): Promise<GeneralResultsData[]> => {
                 seatsTotal: result.seatsTotal,
                 seatsPercent: result.seatsPercentEU,
                 shortName: name.short,
-                longName: name.long,
+                name: name.long,
             };
         },
     );

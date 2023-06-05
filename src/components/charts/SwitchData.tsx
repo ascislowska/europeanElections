@@ -1,8 +1,8 @@
 import React from "react";
-import { IDataFilter } from "../../../interfaces";
+import { IDataFilter } from "../../interfaces";
 interface Props {
     selectedData: IDataFilter;
-    setSelectedData: any;
+    setSelectedData: (data: IDataFilter) => void;
     values: IDataFilter[];
 }
 const SwitchData = ({ selectedData, setSelectedData, values }: Props) => {
@@ -23,8 +23,8 @@ const SwitchData = ({ selectedData, setSelectedData, values }: Props) => {
                             onClick={() => changeData(value)}
                             className={
                                 selectedData.key === value.key
-                                    ? "button is-primary is-active"
-                                    : "button is-primary is-outlined "
+                                    ? "button is-primary is-light is-active"
+                                    : "button is-primary is-light "
                             }
                         >
                             {value.name}

@@ -1,5 +1,6 @@
-import { getNamesList, getName } from "../../../helpers/names";
-import { IChartData, IName, IParty } from "../../../interfaces";
+import { fetchJson } from "../../helpers/fetchData";
+import { getNamesList, getName } from "../../helpers/names";
+import { IChartData, IName, IParty } from "../../interfaces";
 
 interface PolishResults {
     id: string;
@@ -10,10 +11,9 @@ export type PolishResultsData = PolishResults & IChartData;
 
 export const getData = async (): Promise<PolishResultsData[]> => {
     const partiesList: IParty[] = await getNamesList("PL");
+    const data = await fetchJson("data/pl.json");
 
-    const response = await fetch("data/pl.json");
-    const json = await response.json();
-    const results: PolishResultsData[] = json.partySummary.seatsByParty.map(
+    const results: PolishResultsData[] = data.partySummary.seatsByParty.map(
         (partyResult: PolishResults) => {
             const name: IName = getName(partyResult.id, partiesList);
 
@@ -22,7 +22,7 @@ export const getData = async (): Promise<PolishResultsData[]> => {
                 seatsTotal: partyResult.seatsTotal,
                 votesPercent: partyResult.votesPercent,
                 shortName: name.short,
-                longName: name.long,
+                name: name.long,
             };
 
             return partyData;

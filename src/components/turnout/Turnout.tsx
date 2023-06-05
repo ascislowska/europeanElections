@@ -1,11 +1,13 @@
 import { useState, FC, useEffect } from "react";
-import ChartContainer from "../layout/ChartContainer";
-import FilterDatasets from "../layout/FilterDatasets";
+import ChartContainer from "../charts/ChartContainer";
+import FilterDatasets from "../charts/FilterDatasets";
 
-import CustomLineChart from "../layout/CustomLineChart";
+import CustomLineChart from "../charts/CustomLineChart";
+import Text from "../Text";
 import { getData } from "./getTurnoutData";
-import CustomPieChart from "../layout/CustomPieChart";
-import { IDataFilter } from "../../../interfaces";
+import { IDataFilter } from "../../interfaces";
+import { ITurnout } from "./getTurnoutData";
+import turnoutMD from "./turnout.md";
 
 const Turnout: FC = () => {
     //for filtering
@@ -14,18 +16,18 @@ const Turnout: FC = () => {
         { name: "Poland", key: "PL" },
     ]);
     //GET DATA
-    const [turnout, setTurnout] = useState([]);
+    const [turnout, setTurnout] = useState<ITurnout[]>([]);
 
     useEffect(() => {
         getData().then((data) => {
             const [turnoutData, countriesList] = data;
-            setCountries(countriesList);
             setTurnout(turnoutData);
+            setCountries(countriesList);
         });
     }, []);
 
     return (
-        <>
+        <div id="turnout">
             <ChartContainer
                 title="Voting turnout in EU elections"
                 options={
@@ -41,22 +43,8 @@ const Turnout: FC = () => {
                     selectedData={selectedCountries}
                 />
             </ChartContainer>
-            {/* <ChartContainer
-                title="Voting turnout in EU elections"
-                options={
-                    <FilterDatasets
-                        filterBySet={countries}
-                        setSelectedFilters={setSelectedCountries}
-                        selectedFilters={selectedCountries}
-                    />
-                }
-            >
-                <CustomPieChart
-                    data={turnout}
-                    selectedData={selectedCountries}
-                />
-            </ChartContainer> */}
-        </>
+            <Text mdFile={turnoutMD} />
+        </div>
     );
 };
 

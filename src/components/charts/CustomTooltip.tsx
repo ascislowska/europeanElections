@@ -4,7 +4,7 @@ const CustomTooltip = ({ active, payload, label, selectedData }: any) => {
     if (active && payload && payload.length) {
         return (
             <div className="custom-tooltip">
-                <p className="desc">{`${payload[0].payload.longName}`}</p>
+                <p className="desc">{`${payload[0].payload.name}`}</p>
                 <p className="label">{`${payload[0].value} ${
                     selectedData.key === "votesPercent" ? "%" : "seats"
                 }`}</p>

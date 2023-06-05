@@ -1,0 +1,3 @@
+On Sunday 26 May 2019, a vote was held to elect the Polish delegation to the European Parliament. Polish voters elected 52 MEPs, compared to 51 in the 2014 election.
+The increased number of MEPs is a result of the 2018 reapportionment of seats in the European Parliament. Following the United Kingdom's announcement, that it will participate in elections to the European Parliament on May 23, Poland will continue to be represented by 51 MEPs.
+The 52nd MEP will take up their mandate immediately after the UK leaves the European Union. Following the announcement of the election results, the National Electoral Commission indicated Dominik Tarczyński from Lesser Poland and Świętokrzyskie will take up the 52nd seat.

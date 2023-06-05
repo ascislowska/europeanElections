@@ -9,9 +9,10 @@ import {
     Bar,
     Cell,
 } from "recharts";
-import { IDataFilter } from "../../../interfaces";
+import { IDataFilter } from "../../interfaces";
 import CustomTooltip from "./CustomTooltip";
-import { colors } from "../../../consts/colors";
+import { colors } from "../../consts/colors";
+import { CustomLabel } from "./CustomLabel";
 
 interface Props {
     data: any;

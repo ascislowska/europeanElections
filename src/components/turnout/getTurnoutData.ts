@@ -1,29 +1,44 @@
-import { IChartData, IDataFilter } from "../../../interfaces";
-import countries from "../../../datasets/countries.json";
-export interface Turnout {
-    id: string;
-    seatsTotal: string;
-    seatsPercentEU: string;
-}
-export type TurnoutData = Turnout & IChartData;
+import { IDataFilter } from "../../interfaces";
+import countries from "../../datasets/countries.json";
+import { fetchJson } from "../../helpers/fetchData";
 
-export const getData = async () => {
-    const response = await fetch("data/turnout.json");
-    const json = await response.json();
-    const turnout = json.years
+export interface ITurnout {
+    year: string;
+    percent: number;
+    [index: string]: string | number;
+}
+
+//Interfaces for fetching data
+interface year {
+    yearId: string;
+    turnoutByYear: {
+        turnoutEU: { percent: number };
+        turnoutByCountry: countryTurnout[];
+    };
+}
+interface countryTurnout {
+    countryId: string;
+    status: string;
+    time: string | null;
+    percent: number;
+}
+
+export const getData = async (): Promise<[ITurnout[], IDataFilter[]]> => {
+    const data = await fetchJson("data/turnout.json");
+    const turnout = (data.years as year[])
 
         //clear years with no data
-        .filter((year: any) => year.turnoutByYear.turnoutEU !== null)
+        .filter((year) => year.turnoutByYear.turnoutEU !== null)
 
-        .map((year: any) => {
+        .map((year: year) => {
             //general voting turnout and years
-            const yearData: any = {
+            const yearData: ITurnout = {
                 year: year.yearId,
                 percent: year.turnoutByYear.turnoutEU.percent,
             };
             //data for each country
             year.turnoutByYear.turnoutByCountry.forEach(
-                (country: { countryId: string; percent: number }) => {
+                (country: countryTurnout) => {
                     yearData[country.countryId] = country.percent
                         ? country.percent
                         : 0;
@@ -31,11 +46,11 @@ export const getData = async () => {
             );
             return yearData;
         });
-    const countries = await getCountries(json.years);
+    const countries = getCountries(data.years);
     return [turnout, countries];
 };
 
-const getCountries = (years: []) => {
+const getCountries = (years: year[]): IDataFilter[] => {
     //create a list of unique ids
     const countriesIds = new Set<string>();
     years.forEach((year: any) => {

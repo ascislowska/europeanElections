@@ -1,35 +1,67 @@
-import React from "react";
-
+import { useState } from "react";
+import { navLinks } from "../consts/nav-links";
 const NavBarTablets = () => {
-  return (
-    <nav
-      className="navbar is-fixed-top"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div className="navbar-menu is-flex-mobile is-justify-content-flex-end">
-        <a className="navbar-item">Home</a>
+    const [activeLink, setActiveLink] = useState("Home");
 
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">Charts</a>
-          <div className="navbar-dropdown">
-            <a className="navbar-item">EU Turnout</a>
-            <a className="navbar-item">Parties</a>
-            <a className="navbar-item">Groups</a>
-          </div>
-        </div>
-        <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">About</a>
-          <div className="navbar-dropdown">
-            <a className="navbar-item">Data</a>
-            <a className="navbar-item">Our Team</a>
-            <hr className="navbar-divider" />
-            <a className="navbar-item">Report an issue</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+    return (
+        <nav
+            className="navbar is-fixed-top"
+            role="navigation"
+            aria-label="main navigation"
+        >
+            <div className="navbar-menu is-flex-mobile is-justify-content-flex-end">
+                {navLinks.map((item) => {
+                    //links without submenu
+                    if (item.link) {
+                        return (
+                            <a
+                                key={item.link}
+                                href={item.link}
+                                className={
+                                    activeLink === item.name
+                                        ? "navbar-item is-active "
+                                        : "navbar-item"
+                                }
+                                onClick={() => setActiveLink(item.name)}
+                            >
+                                {item.name}
+                            </a>
+                        );
+                    } else if (item.links) {
+                        //links with submenu
+                        return (
+                            <div
+                                className="navbar-item has-dropdown is-hoverable"
+                                key={item.link}
+                            >
+                                <a className="navbar-link">{item.name}</a>
+                                <div className="navbar-dropdown">
+                                    {item.links.map((link) => {
+                                        return (
+                                            <a
+                                                key={link.link}
+                                                href={link.link}
+                                                className={
+                                                    activeLink === link.name
+                                                        ? "navbar-item is-active"
+                                                        : "navbar-item"
+                                                }
+                                                onClick={() =>
+                                                    setActiveLink(link.name)
+                                                }
+                                            >
+                                                {link.name}
+                                            </a>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        );
+                    }
+                })}
+            </div>
+        </nav>
+    );
 };
 
 export default NavBarTablets;

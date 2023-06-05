@@ -1,0 +1,2 @@
+In February 2018, the European Parliament had voted to decrease the number of MEPs from 751 to 705 if the United Kingdom were to withdraw from the European Union on 29 March 2019. However, the United Kingdom participated alongside other EU member states after an extension of Article 50 to 31 October 2019; therefore, the allocation of seats between the member states and the total number of seats remained as it had been in 2014.
+The Ninth European Parliament had its first plenary session on 2 July 2019.

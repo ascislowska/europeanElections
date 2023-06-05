@@ -22,7 +22,7 @@ export const CustomLabel = ({
                 y={y}
                 textAnchor={x > cx ? "start" : "end"}
                 dominantBaseline="central"
-                font-weight="bold"
+                fontWeight="bold"
             >
                 <tspan> {payload.shortName}</tspan>
                 <tspan x={x} dy="1em" fill={colors[index % colors.length]}>

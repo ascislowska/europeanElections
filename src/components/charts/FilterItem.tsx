@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { IDataFilter } from "../../../interfaces";
+import { IDataFilter } from "../../interfaces";
 
 interface Props {
     filter: IDataFilter;
@@ -37,7 +37,6 @@ const FilterItem = ({ filter, selectedFilters, setSelectedFilters }: Props) => {
             <input
                 type="checkbox"
                 name={filter.name}
-                defaultChecked={isChecked}
                 checked={isChecked}
                 onChange={(e) => {
                     checkItem(e);
