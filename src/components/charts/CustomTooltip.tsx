@@ -1,17 +1,24 @@
 import React from "react";
+import { IDataFilter } from "../../interfaces";
+import { TooltipProps } from "recharts";
 
-const CustomTooltip = ({ active, payload, label, selectedData }: any) => {
+interface Props extends TooltipProps<string, number> {
+    selectedData: IDataFilter;
+}
+const CustomTooltip = ({ active, payload, selectedData }: Props) => {
     if (active && payload && payload.length) {
         return (
             <div className="custom-tooltip">
-                <p className="desc">{`${payload[0].payload.name}`}</p>
-                <p className="label">{`${payload[0].value} ${
-                    selectedData.key === "votesPercent" ? "%" : "seats"
+                <p className="desc">{`${
+                    payload[0].payload.name || selectedData.name
                 }`}</p>
+
+                <p className="label">
+                    {payload[0].value}
+                    {selectedData.unit}
+                </p>
             </div>
         );
-
-        // <p className="label">{`${label} : ${payload[0].value}`}</p>;
     }
     return null;
 };

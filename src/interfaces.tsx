@@ -1,7 +1,3 @@
-// export interface IDataFilter {
-//     name: string;
-//     key: string;
-// }
 export interface IDataFilter {
     name: string;
     key: string;
@@ -11,6 +7,7 @@ export interface IChartData {
     name: string;
     id: string;
 }
+
 export interface IResults {
     id: string;
     seatsTotal: number;

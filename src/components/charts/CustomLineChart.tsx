@@ -10,11 +10,13 @@ import {
 } from "recharts";
 import { colors } from "../../consts/colors";
 import { IDataFilter } from "../../interfaces";
+import CustomTooltip from "./CustomTooltip";
 type Props = {
     data: any[];
-    selectedData: IDataFilter[];
+    dataFilter: IDataFilter[];
+    dataType: IDataFilter;
 };
-const CustomLineChart = ({ data, selectedData }: Props) => {
+const CustomLineChart = ({ data, dataFilter, dataType }: Props) => {
     return (
         <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data}>
@@ -52,7 +54,7 @@ const CustomLineChart = ({ data, selectedData }: Props) => {
                     strokeWidth={2}
                     fill="url(#colorUv)"
                 />
-                {selectedData.map((item: IDataFilter, index: number) => {
+                {dataFilter.map((item: IDataFilter, index: number) => {
                     return (
                         <Area
                             key={item.key}
@@ -68,7 +70,7 @@ const CustomLineChart = ({ data, selectedData }: Props) => {
                 <XAxis dataKey="year" style={{ fontFamily: "Jost" }} />
                 <YAxis width={30} />
                 <CartesianGrid vertical={false} />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip selectedData={dataType} />} />
             </AreaChart>
         </ResponsiveContainer>
     );

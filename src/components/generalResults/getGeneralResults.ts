@@ -1,7 +1,6 @@
 import { fetchJson } from "../../helpers/fetchData";
 import { getGroupName, getGroupsList } from "../../helpers/names";
 import { IChartData, IGroup, IName } from "../../interfaces";
-import GeneralResults from "./GeneralResults";
 
 export interface IGeneralResults {
     id: string;

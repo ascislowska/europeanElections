@@ -1,4 +1,4 @@
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Text from "./Text";
 import about from "../texts/about.md";
 import TeamMember from "./TeamMember";
@@ -12,31 +12,29 @@ export interface ITeamMember {
     photo: string;
 }
 const About = () => {
-    type ISetTeam = Dispatch<SetStateAction<ITeamMember[]>>;
     const [team, setTeam] = useState<ITeamMember[]>([]);
-
+    const teamData = useCallback(async () => {
+        const females = await fetchJson(
+            "https://randomuser.me/api/?results=2&gender=female",
+        );
+        const femalesWithPhotos = females.results.map(
+            (female: ITeamMember, i: string) => {
+                female.photo = `/assets/female/${i}.jpg`;
+                return { ...female };
+            },
+        );
+        const males = await fetchJson(
+            "https://randomuser.me/api/?results=2&gender=male",
+        );
+        const malesWithPhotos = males.results.map(
+            (male: ITeamMember, i: string) => {
+                male.photo = `/assets/male/${i}.jpg`;
+                return { ...male };
+            },
+        );
+        setTeam([...femalesWithPhotos, ...malesWithPhotos]);
+    }, []);
     useEffect(() => {
-        const teamData = async () => {
-            const females = await fetchJson(
-                "https://randomuser.me/api/?results=2&gender=female",
-            );
-            const femalesWithPhotos = females.results.map(
-                (female: ITeamMember, i: string) => {
-                    female.photo = `/assets/female/${i}.jpg`;
-                    return { ...female };
-                },
-            );
-            const males = await fetchJson(
-                "https://randomuser.me/api/?results=2&gender=male",
-            );
-            const malesWithPhotos = males.results.map(
-                (male: ITeamMember, i: string) => {
-                    male.photo = `/assets/male/${i}.jpg`;
-                    return { ...male };
-                },
-            );
-            setTeam([...femalesWithPhotos, ...malesWithPhotos]);
-        };
         teamData();
     }, []);
     return (

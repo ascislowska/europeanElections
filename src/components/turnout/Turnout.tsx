@@ -40,7 +40,8 @@ const Turnout: FC = () => {
             >
                 <CustomLineChart
                     data={turnout}
-                    selectedData={selectedCountries}
+                    dataFilter={selectedCountries}
+                    dataType={{ name: "percent", key: "percent", unit: "%" }}
                 />
             </ChartContainer>
             <Text mdFile={turnoutMD} />
