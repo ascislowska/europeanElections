@@ -17,7 +17,7 @@ const FilterItem = ({ filter, selectedFilters, setSelectedFilters }: Props) => {
             : setIsChecked(false);
     }, []);
 
-    const checkItem = (e: ChangeEvent<HTMLInputElement>) => {
+    const checkItem = () => {
         if (!isChecked) {
             const newList = [...selectedFilters];
             newList.push({ name: filter.name, key: filter.key });
@@ -38,10 +38,10 @@ const FilterItem = ({ filter, selectedFilters, setSelectedFilters }: Props) => {
                 type="checkbox"
                 name={filter.name}
                 checked={isChecked}
-                onChange={(e) => {
-                    checkItem(e);
+                onChange={() => {
+                    checkItem();
                 }}
-            />{" "}
+            />
             {filter.name}
         </label>
     );

@@ -9,13 +9,12 @@ import {
     Bar,
     Cell,
 } from "recharts";
-import { IDataFilter } from "../../interfaces";
+import { IChartData, IDataFilter } from "../../interfaces";
 import CustomTooltip from "./CustomTooltip";
 import { colors } from "../../consts/colors";
-import { CustomLabel } from "./CustomLabel";
 
 interface Props {
-    data: any;
+    data: IChartData[];
     selectedData: IDataFilter;
 }
 const CustomBarChart = ({ data, selectedData }: Props) => {
@@ -25,12 +24,11 @@ const CustomBarChart = ({ data, selectedData }: Props) => {
                 <Tooltip
                     content={<CustomTooltip selectedData={selectedData} />}
                 />
-                {/* <Tooltip formatter={(label) => label + "%"} /> */}
                 <XAxis dataKey="shortName"></XAxis>
                 <YAxis width={30} />
                 <CartesianGrid vertical={false} />
                 <Bar dataKey={selectedData.key} name={selectedData.name}>
-                    {data.map((item: any, index: number) => {
+                    {data.map((item: IChartData, index: number) => {
                         return (
                             <Cell
                                 key={index}

@@ -1,4 +1,3 @@
-import React from "react";
 import { IDataFilter } from "../../interfaces";
 interface Props {
     selectedData: IDataFilter;

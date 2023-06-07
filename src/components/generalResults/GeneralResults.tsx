@@ -14,7 +14,7 @@ const GeneralResults = () => {
     //Filters
     const filter: IDataFilter[] = [
         { name: "Seats percent", key: "seatsPercent", unit: "%" },
-        { name: "Seats total", key: "seatsTotal", unit: "" },
+        { name: "Seats total", key: "seatsTotal", unit: "seats" },
     ];
     const [selectedData, setSelectedData] = useState(filter[0]);
 

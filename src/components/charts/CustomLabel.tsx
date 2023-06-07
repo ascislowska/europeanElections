@@ -1,12 +1,3 @@
-import {
-    CustomizedProps,
-    LabelListProps,
-    LabelProps,
-    Pie,
-    PieLabel,
-    PieProps,
-} from "recharts";
-
 export const CustomLabel = ({
     cx,
     cy,

@@ -1,7 +1,7 @@
 import { ITeamMember } from "./About";
 
 const TeamMember = ({
-    data: { name, email, cell, picture, location, photo },
+    data: { name, email, cell, location, photo },
 }: {
     data: ITeamMember;
 }) => {

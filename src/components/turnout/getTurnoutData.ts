@@ -1,5 +1,5 @@
 import { IDataFilter } from "../../interfaces";
-import countries from "../../datasets/countries.json";
+import countries from "../../consts/countries.json";
 import { fetchJson } from "../../helpers/fetchData";
 
 export interface ITurnout {

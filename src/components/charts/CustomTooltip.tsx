@@ -1,4 +1,3 @@
-import React from "react";
 import { IDataFilter } from "../../interfaces";
 import { TooltipProps } from "recharts";
 
