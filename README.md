@@ -6,6 +6,8 @@
 
 Data visualisations created with recharts library. The data comes from the European Parliament website. This is a personal project developed for learning purposes.
 
+https://github.com/ascislowska/europeanElections/assets/96797979/43d9d763-d0b1-4af1-a95b-2ffb73a9e0f6
+
 ## Technologies used with my highlights
 
 -   Recharts
